@@ -1,5 +1,5 @@
 /* ============================================================
-   Snaptext AI — landing/app.js
+   Visionix AI — landing/app.js
    Premium Interactive Browser Extension Simulator Engine
    ============================================================ */
 
@@ -514,7 +514,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Simulate a brief generation lag and trigger download feedback
     setTimeout(() => {
-      showToast(`✅ File downloaded: snaptext-ocr-${Date.now().toString().slice(-4)}.${format.toLowerCase()}`);
+      showToast(`✅ File downloaded: visionix-ocr-${Date.now().toString().slice(-4)}.${format.toLowerCase()}`);
     }, 1200);
   }
 

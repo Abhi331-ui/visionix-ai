@@ -1,6 +1,6 @@
 /* ============================================================
-   Snaptext AI — landing/styles.css
-   Futuristic, premium design system for feature showcase
+   Visionix AI — landing/styles.css
+   Premium Futuristic Glassmorphism Design Tokens & Utilities
    ============================================================ */
 
 /* ── CSS Variables & Design Tokens ─────────────────────────── */
@@ -754,7 +754,7 @@ h1 span {
   background: radial-gradient(circle, var(--st-purple), transparent);
 }
 
-.snaptext-panel {
+.visionix-panel {
   position: absolute;
   top: 0;
   right: 0;
@@ -772,7 +772,7 @@ h1 span {
   overflow: hidden;
 }
 
-.snaptext-panel.open {
+.visionix-panel.open {
   transform: translateX(0);
 }
 
@@ -1293,7 +1293,7 @@ input:checked + .st-slider:before {
 }
 
 /* Light Theme variables on Panel elements inside simulation */
-.snaptext-panel.st-light-theme {
+.visionix-panel.st-light-theme {
   --st-bg: #F8FAFC;
   --st-bg2: #FFFFFF;
   --st-bg3: #E2E8F0;
@@ -1555,7 +1555,7 @@ input:checked + .st-slider:before {
   .browser-window {
     height: 520px;
   }
-  .snaptext-panel {
+  .visionix-panel {
     width: 260px;
   }
 }
@@ -1570,7 +1570,7 @@ input:checked + .st-slider:before {
   .browser-window {
     height: 460px;
   }
-  .snaptext-panel {
+  .visionix-panel {
     width: 210px;
   }
   .footer-meta {
