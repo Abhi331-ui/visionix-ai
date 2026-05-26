@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snaptext AI — Premium Feature Showcase</title>
+  
+  <!-- Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Ambient background flows -->
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+
+  <!-- Header / Navigation -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <div class="logo">
+        <div class="logo-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#00E5FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="logo-text">Snaptext<em>AI</em></span>
+      </div>
+      <nav class="nav-links">
+        <a href="#simulator" class="nav-link">Interactive Demo</a>
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#about" class="nav-link">About</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="btn btn-primary" onclick="alert('In a real deployment, this would deep-link to the Chrome Web Store entry!')">
+          Add to Chrome
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-container">
+      <div class="hero-badge">✨ Futuristic Screen OCR Technology</div>
+      <h1 class="hero-title">Instant OCR, Anywhere <br><span>On Your Viewport</span></h1>
+      <p class="hero-subtitle">
+        Snaptext AI seamlessly integrates a pixel-perfect, glassmorphic text recognition engine directly into your browser. Crop any image, scanned PDF, chart, or video frame on any page, and extract editable text instantly.
+      </p>
+      <div class="hero-ctas">
+        <a href="#simulator" class="btn btn-primary btn-large">Try Simulator Live</a>
+        <a href="#features" class="btn btn-secondary btn-large">Showcase Features</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Browser Simulator Section -->
+  <section id="simulator" class="simulator-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Experience the Extension</h2>
+        <p class="section-subtitle">
+          Hover over the floating camera button in the bottom-right corner of the browser mockup below, click it, and drag a box over any text block or code snippet to experience the capture flow firsthand!
+        </p>
+      </div>
+
+      <!-- Browser Frame -->
+      <div class="browser-window">
+        <!-- Browser Top Bar -->
+        <div class="browser-header">
+          <div class="browser-dots">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <div class="browser-tab">
+            <span class="tab-icon">🌐</span>
+            <span class="tab-title">Artificial Intelligence - Wikipedia</span>
+          </div>
+          <div class="browser-address-bar">
+            <span class="security-lock">🔒</span>
+            <span class="address-url">en.wikipedia.org/wiki/Artificial_Intelligence</span>
+          </div>
+        </div>
+
+        <!-- Simulated Browser Viewport -->
+        <div class="browser-viewport" id="sim-viewport">
+          <!-- Selection Screen Mask Overlay -->
+          <div class="sim-overlay-mask" id="sim-overlay-mask">
+            <div class="sim-overlay-hint">
+              <span class="st-hint-icon">⊹</span> Drag to select an area for OCR
+            </div>
+            <!-- Dynamic Selection Box -->
+            <div class="sim-sel-box" id="sim-sel-box">
+              <div class="st-sel-grid-h1"></div>
+              <div class="st-sel-grid-h2"></div>
+              <div class="st-sel-grid-v1"></div>
+              <div class="st-sel-grid-v2"></div>
+              <div class="st-sel-crosshair-h"></div>
+              <div class="st-sel-crosshair-v"></div>
+            </div>
+          </div>
+          
+          <!-- Shutter Camera Flash Overlay -->
+          <div class="sim-shutter-flash" id="sim-shutter-flash"></div>
+
+          <!-- Webpage content inside browser -->
+          <div class="webpage-content">
+            <article class="wiki-article">
+              <h1 class="article-heading">Artificial Intelligence</h1>
+              <p class="article-lead">
+                <strong>Artificial intelligence (AI)</strong> is intelligence demonstrated by machines, as opposed to natural intelligence displayed by animals including humans. Leading AI textbooks define the field as the study of "intelligent agents".
+              </p>
+              
+              <!-- Highlighted Scanned book Text Block for demonstration -->
+              <div class="wiki-section selectable-block" data-text-id="text-definition" title="Drag selection box over me!">
+                <div class="block-indicator">📰 SCAN QUOTE IMAGE</div>
+                <div class="scanned-image-box">
+                  <p class="scanned-text-main">
+                    "The ultimate goal of artificial intelligence research is to build systems that can learn, reason, and act autonomously in complex environments."
+                  </p>
+                  <p class="scanned-text-author">— Foundations of Machine Intelligence (1998)</p>
+                </div>
+              </div>
+
+              <p class="article-body">
+                AI research has been highly successful in developing effective techniques for solving a wide range of challenging tasks, from game playing to medical diagnosis. The modern era of AI is heavily dominated by deep neural network models.
+              </p>
+
+              <!-- Highlighted Code Snippet Block for demonstration -->
+              <div class="wiki-section selectable-block" data-text-id="text-code" title="Drag selection box over me!">
+                <div class="block-indicator">💻 CODE IMAGE</div>
+                <pre class="code-snippet-box"><code><span class="code-keyword">import</span> tensorflow <span class="code-keyword">as</span> tf
+
+<span class="code-comment"># Build a simple artificial neural network core</span>
+model = tf.keras.models.Sequential([
+    tf.keras.layers.Dense(<span class="code-number">128</span>, activation=<span class="code-string">'relu'</span>),
+    tf.keras.layers.Dropout(<span class="code-number">0.2</span>),
+    tf.keras.layers.Dense(<span class="code-number">10</span>, activation=<span class="code-string">'softmax'</span>)
+])</code></pre>
+              </div>
+
+              <p class="article-body">
+                As machine learning algorithms become more powerful, they are increasingly integrated into critical infrastructures, prompting conversations about machine ethics, automated safety, and transparency.
+              </p>
+            </article>
+          </div>
+
+          <!-- Simulated Floating Action Button (FAB) -->
+          <button class="st-fab" id="sim-fab" title="Snaptext AI — Click to capture">
+            <div class="st-fab-ring-outer"></div>
+            <div class="st-fab-ring-inner"></div>
+            <div class="st-fab-glass"></div>
+            <svg class="st-fab-lens-svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path class="st-camera-shutter" d="M8 5.5v-1A1.5 1.5 0 0 1 9.5 3h5A1.5 1.5 0 0 1 16 4.5v1" stroke="url(#st-lens-grad)" stroke-width="1.8" stroke-linecap="round"/>
+              <rect class="st-camera-body" x="3" y="5.5" width="18" height="14" rx="3.5" stroke="url(#st-lens-grad)" stroke-width="1.8"/>
+              <circle class="st-camera-lens-outer" cx="12" cy="12.5" r="4.5" stroke="rgba(255, 255, 255, 0.25)" stroke-width="1"/>
+              <circle class="st-camera-lens-inner" cx="12" cy="12.5" r="2.5" stroke="#00E5FF" stroke-width="1.5"/>
+              <circle class="st-camera-dot" cx="13.5" cy="11" r="0.75" fill="#fff"/>
+              <defs>
+                <linearGradient id="st-lens-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#00E5FF"/>
+                  <stop offset="50%" stop-color="#8B5CF6"/>
+                  <stop offset="100%" stop-color="#3B82F6"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <span class="st-fab-label">Snap</span>
+          </button>
+
+          <!-- Simulated Slide-out Panel widget -->
+          <div class="snaptext-panel" id="sim-panel">
+            <!-- Ambient glows inside panel -->
+            <div class="st-panel-glow st-panel-glow-1"></div>
+            <div class="st-panel-glow st-panel-glow-2"></div>
+
+            <!-- Panel Header -->
+            <div class="st-panel-header">
+              <div class="st-logo">
+                <div class="st-logo-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#00E5FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <span class="st-logo-text">Snaptext<em>AI</em></span>
+              </div>
+              <div class="st-header-actions">
+                <button class="st-btn-icon" id="sim-btn-new" title="New capture">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+                </button>
+                <button class="st-btn-icon" id="sim-btn-theme" title="Toggle theme">
+                  <svg class="st-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                  </svg>
+                  <svg class="st-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                  </svg>
+                </button>
+                <button class="st-btn-icon st-btn-close" id="sim-btn-close" title="Close Panel">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Panel Tabs -->
+            <div class="st-tabs st-tabs-3">
+              <div class="st-tab-indicator" id="sim-tab-indicator"></div>
+              <button class="st-tab st-tab-active" data-tab="result" style="z-index: 1;">Result</button>
+              <button class="st-tab" data-tab="history" style="z-index: 1;">History</button>
+              <button class="st-tab" data-tab="settings" style="z-index: 1;">Settings</button>
+            </div>
+
+            <!-- Panel Tab: Result -->
+            <div class="st-tab-content" id="sim-tab-result">
+              <!-- Loading State -->
+              <div class="st-loading" id="sim-loading" style="display:none">
+                <div class="st-loader-ring"></div>
+                <div class="st-loading-messages" id="sim-loading-msg">Initializing...</div>
+                <div class="st-loading-sub">Powered by Tesseract.js OCR</div>
+              </div>
+
+              <!-- Empty State -->
+              <div class="st-empty" id="sim-empty">
+                <div class="st-empty-icon">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+                    <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="12" cy="13" r="4" stroke="#00E5FF" stroke-width="1.5"/>
+                  </svg>
+                </div>
+                <p class="st-empty-title">Ready to Capture</p>
+                <p class="st-empty-sub">Click the floating camera button or draw a box over highlighted sections on the page.</p>
+              </div>
+
+              <!-- Result Content -->
+              <div class="st-result" id="sim-result" style="display:none">
+                <!-- Preview badge -->
+                <div class="st-preview-wrap">
+                  <div class="st-mock-thumb-box" id="sim-preview-box">
+                    <span class="st-mock-preview-placeholder">Image Preview</span>
+                  </div>
+                  <div class="st-preview-badge">Preview</div>
+                </div>
+
+                <!-- Text Area -->
+                <div class="st-text-section">
+                  <div class="st-text-header">
+                    <span class="st-text-label">Extracted Text</span>
+                    <div class="st-text-meta" id="sim-text-meta">0 chars</div>
+                  </div>
+                  <textarea class="st-textarea" id="sim-textarea" placeholder="No text extracted."></textarea>
+                </div>
+
+                <!-- Actions -->
+                <div class="st-actions">
+                  <button class="st-btn st-btn-primary" id="sim-btn-copy">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                    Copy
+                  </button>
+                  <button class="st-btn st-btn-secondary" id="sim-btn-retry">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+                    Retry
+                  </button>
+                  <button class="st-btn st-btn-secondary" id="sim-btn-save">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+                    Save
+                  </button>
+                </div>
+                <div class="st-export-row">
+                  <button class="st-btn-export" id="sim-btn-pdf">PDF</button>
+                  <button class="st-btn-export" id="sim-btn-txt">TXT</button>
+                  <button class="st-btn-export" id="sim-btn-docx">DOCX</button>
+                  <button class="st-btn-export st-btn-danger" id="sim-btn-delete">Delete</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Panel Tab: History -->
+            <div class="st-tab-content" id="sim-tab-history" style="display:none">
+              <div class="st-search-row">
+                <div class="st-search-wrap">
+                  <svg class="st-search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                  <input class="st-search" id="sim-search" type="text" placeholder="Search captures…"/>
+                </div>
+                <button class="st-btn-export st-btn-danger" id="sim-btn-clear-history" style="flex: none; width: auto; padding: 8px 12px; margin: 0; font-size: 11px;" title="Clear all history">Clear All</button>
+              </div>
+              <div class="st-history-list" id="sim-history-list">
+                <!-- Seeded mock history item -->
+                <div class="st-history-card active-sim-card">
+                  <div class="st-hist-thumb-placeholder">🖨️</div>
+                  <div class="st-hist-body">
+                    <div class="st-hist-label">TF Neural Network ANN Model...</div>
+                    <div class="st-hist-time">Just now</div>
+                    <div class="st-hist-preview">import tensorflow as tf # Build a simple ANN core model...</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Panel Tab: Settings -->
+            <div class="st-tab-content" id="sim-tab-settings" style="display:none">
+              <!-- OCR Settings -->
+              <div class="st-settings-group">
+                <div class="st-settings-title">OCR Engine Settings</div>
+                <div class="st-settings-row">
+                  <span class="st-settings-label">Primary Language</span>
+                  <select class="st-select" id="sim-pref-lang">
+                    <option value="eng">English (eng)</option>
+                    <option value="spa">Spanish (spa)</option>
+                    <option value="fra">French (fra)</option>
+                  </select>
+                </div>
+                <div class="st-settings-desc">Choose which language Tesseract OCR will focus on recognizing.</div>
+              </div>
+
+              <!-- UI Customization -->
+              <div class="st-settings-group">
+                <div class="st-settings-title">Interface Settings</div>
+                <div class="st-settings-row">
+                  <span class="st-settings-label">Floating Snap Button</span>
+                  <label class="st-switch">
+                    <input type="checkbox" id="sim-pref-show-fab" checked>
+                    <span class="st-slider"></span>
+                  </label>
+                </div>
+                <div class="st-settings-desc">Toggle the floating camera button on the bottom-right of web pages.</div>
+
+                <div class="st-settings-row" style="margin-top: 8px;">
+                  <span class="st-settings-label">Interface Theme</span>
+                  <select class="st-select" id="sim-pref-theme">
+                    <option value="dark">Dark Theme</option>
+                    <option value="light">Light Theme</option>
+                  </select>
+                </div>
+                <div class="st-settings-desc">Switch between futuristic dark mode and crisp slate light mode.</div>
+              </div>
+
+              <!-- Storage Details -->
+              <div class="st-settings-group">
+                <div class="st-settings-title">Storage & Operations</div>
+                <div class="st-settings-row">
+                  <span class="st-settings-label">History Cache Limit</span>
+                  <span class="st-settings-label" style="opacity: 0.6; font-size: 12px;">100 captures max</span>
+                </div>
+                <div class="st-settings-desc">Scans automatically cycle out past 100 items to preserve speed.</div>
+              </div>
+            </div>
+
+            <!-- Panel Toast notification inside mockup -->
+            <div class="st-toast" id="sim-toast"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Showcase Features Section -->
+  <section id="features" class="features-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Showcasing Power & Elegance</h2>
+        <p class="section-subtitle">Discover the high-fidelity features designed for the ultimate screen capture productivity.</p>
+      </div>
+
+      <div class="features-grid">
+        <!-- Feature 1 -->
+        <div class="feature-card">
+          <div class="feature-icon-box cyan-glow">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>
+          </div>
+          <h3 class="feature-card-title">High-DPI Retina Awareness</h3>
+          <p class="feature-card-desc">
+            Snaptext AI reads native browser device pixels. By multiplying selections by the display ratio, it completely avoids interpolation blur, serving ultra-sharp images to the recognition engine.
+          </p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="feature-card">
+          <div class="feature-icon-box purple-glow">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <h3 class="feature-card-title">Lossless Export Formats</h3>
+          <p class="feature-card-desc">
+            Compile and save your captures instantly. Export extracted text alongside the captured image directly to high-quality PDF, TXT, or Microsoft Word DOCX formats with a single click.
+          </p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="feature-card">
+          <div class="feature-icon-box cyan-glow">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          </div>
+          <h3 class="feature-card-title">In-Place Editing</h3>
+          <p class="feature-card-desc">
+            Correct OCR misreadings or format formatting right inside the text area. Save your changes back to the history cache without duplicating capturing cards, maintaining a tidy history.
+          </p>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="feature-card">
+          <div class="feature-icon-box purple-glow">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3 class="feature-card-title">Smart History Cache</h3>
+          <p class="feature-card-desc">
+            An offline capture catalog cycles out older captures beyond 100 items, preserving high extension loading speeds. Search, edit, copy, or run OCR again on historical screenshots.
+          </p>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="feature-card">
+          <div class="feature-icon-box cyan-glow">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+          </div>
+          <h3 class="feature-card-title">Tesseract.js Local Engine</h3>
+          <p class="feature-card-desc">
+            Powered by Tesseract.js, character recognition runs locally inside your browser process. Your screenshot pixel data never touches external cloud servers, guaranteeing absolute privacy.
+          </p>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="feature-card">
+          <div class="feature-icon-box purple-glow">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          </div>
+          <h3 class="feature-card-title">Dual Aesthetics Themes</h3>
+          <p class="feature-card-desc">
+            Seamlessly toggle between a glowing, futuristic glassmorphic Dark Theme and a crisp, slate-white Light Theme. All controls adapt instantly inside both popup and side-panels.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer id="about" class="footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#00E5FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span class="logo-text">Snaptext<em>AI</em></span>
+        </div>
+        <p class="footer-tagline">Visual screen capture OCR productivity, elevated.</p>
+      </div>
+      <div class="footer-meta">
+        <span class="footer-copy">© 2026 Snaptext AI. Open-source under MIT License.</span>
+        <span class="footer-credit">Designed for productivity with high-fidelity glassmorphism.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
